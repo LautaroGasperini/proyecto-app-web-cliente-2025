@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar videojuego</title>
+</head>
+<body>
+    <h2>Agregar videojuegos</h2>
+
+    <form action="" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" required>
+        <br>
+        <label for="genero">Genero</label>
+        <select name="genero" id="genero" required>
+            <option value="">Accion</option>
+            <option value="">Aventura</option>
+            <option value="">Deportes</option>
+            <option value="">Estrategia</option>
+            <option value="">Terror</option>
+        </select>
+        <br>
+        <label for="plataformas">Plataforma/s</label>
+        <input type="text" name="plataformas" id="plataformas" required>
+        <br>
+        <label for="precio">Precio</label>
+        <input type="number" name="precio" id="precio" required>  
+        <br>
+        <button type="submit">Agregar</button>      
+    </form>
+</body>
+</html>
