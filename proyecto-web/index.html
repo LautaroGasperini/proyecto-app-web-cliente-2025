@@ -7,50 +7,65 @@
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Catalogo de videojuegos</h1>
-        <p>Encuentra tu videojuego preferido de cualquier genero y plataforma</p>
-    </header>
-    
-    <img src="" alt="">
-    <main>
-        <section>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Genero</th>
-                        <th>Plataforma</th>
-                        <th>Precio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>God of War: Ragnarok</td>
-                        <td>Accion</td>
-                        <td>PC. PS5, PS4</td>
-                        <td>$49.99</td>
-                    </tr>
-                    <tr>
-                        <td>Stardew Valley</td>
-                        <td>Aventura</td>
-                        <td>PC, Ninitendo Switch, PS4, Android, iOS</td>
-                        <td>$4.99</td>
-                    </tr>
-                    <tr>
-                        <td>FC 25</td>
-                        <td>Deportes</td>
-                        <td>PC, PS5, PS4</td>
-                        <td>$69.99</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
-    <a href="formAlta.html">Agregar videojuego</a>
-    <footer>
-        <hr>
-        <a href="contacto.html">contacto</a>
-    </footer>
+    <div class="wrapper">
+        <header>
+                <h1>Catalogo de videojuegos</h1>
+            <nav>
+                <input type="text" id="filtro" placeholder="¿Qué videojuego buscas?">
+            </nav>
+        </header>
+
+        <!-- <aside>
+            <label for=""><strong>Filtros</strong></label>
+        </aside>
+        <div>
+            <label for="filtro">Buscar</label>
+            <input type="text" id="filtro" placeholder="Buscar...">
+            <button>Buscar</button>
+        </div> -->
+        <main class="container">
+            <section class="grid">
+                <article class="card">
+                    <img src="https://image.api.playstation.com/gs2-sec/acpkgo/prod/CUSA00133_00/374/i_21516ca32977519346e7b5cbf52fcadf722998b0d0a781fbeeea687cd3dca173/i/icon0.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>Descripcion</p>
+                    <p>Precio: $100</p>
+                    <button>Comprar</button>
+                </article>
+                <article class="card">
+                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>Descripcion</p>
+                    <p>Precio: $100</p>
+                    <button>Comprar</button>
+                </article>
+                <article class="card">
+                    <img src="https://store-images.s-microsoft.com/image/apps.7814.13531476541866969.9b83558e-4d72-4ee5-9214-3504337b32f8.4671c3bb-9787-44d9-bf45-a637e5e76c76?q=90&w=177&h=177" alt="Producto">
+                    <h3>Nombre del producto</h3>
+                    <p>Descripcion</p>
+                    <p>Precio: $100</p>
+                    <button>Comprar</button>
+            </section>
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="footer-column frases">
+          <p>"Presiona Start para comenzar tu aventura."</p>
+          <p>"Gamers don't die, they respawn."</p>
+        </div>
+      
+        <div class="footer-column info">
+          <p>&copy; 2025 Catálogo de Videojuegos</p>
+          <p>Desarrollado por Lautaro Gasperini</p>
+        </div>
+      
+        <div class="footer-column contacto">
+          <h4>Contacto</h4>
+          <p>📧 <a href="mailto:lautitondi2019@gmail.com">lautitondi2019@gmail.com</a></p>
+          <p>📱 Seguinos en: Facebook | Instagram | Twitter</p>
+        </div>
+      </footer>
+      
 </body>
+<script src="./scripts/script.js"></script>
 </html>
