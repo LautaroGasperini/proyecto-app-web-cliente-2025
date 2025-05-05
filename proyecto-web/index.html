@@ -9,45 +9,70 @@
 <body>
     <div class="wrapper">
         <header>
-                <h1>Catalogo de videojuegos</h1>
-            <nav>
-                <input type="text" id="filtro" placeholder="¿Qué videojuego buscas?">
+            <div>
+                <img src="img/Quilmes-removebg-preview.png" alt="Logo" class="logo">
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
             </nav>
+            <div class="buscador">
+                <input type="text" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </div>    
         </header>
-
-        <!-- <aside>
-            <label for=""><strong>Filtros</strong></label>
-        </aside>
-        <div>
-            <label for="filtro">Buscar</label>
-            <input type="text" id="filtro" placeholder="Buscar...">
-            <button>Buscar</button>
-        </div> -->
-        <main class="container">
-            <section class="grid">
-                <article class="card">
-                    <img src="https://image.api.playstation.com/gs2-sec/acpkgo/prod/CUSA00133_00/374/i_21516ca32977519346e7b5cbf52fcadf722998b0d0a781fbeeea687cd3dca173/i/icon0.png" alt="Producto">
-                    <h3>Nombre del producto</h3>
-                    <p>Descripcion</p>
-                    <p>Precio: $100</p>
-                    <button>Comprar</button>
-                </article>
-                <article class="card">
-                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png" alt="Producto">
-                    <h3>Nombre del producto</h3>
-                    <p>Descripcion</p>
-                    <p>Precio: $100</p>
-                    <button>Comprar</button>
-                </article>
-                <article class="card">
-                    <img src="https://store-images.s-microsoft.com/image/apps.7814.13531476541866969.9b83558e-4d72-4ee5-9214-3504337b32f8.4671c3bb-9787-44d9-bf45-a637e5e76c76?q=90&w=177&h=177" alt="Producto">
-                    <h3>Nombre del producto</h3>
-                    <p>Descripcion</p>
-                    <p>Precio: $100</p>
-                    <button>Comprar</button>
-            </section>
-        </main>
-    </div>
+        <div class="container">
+            <aside>
+                <h2>Filtros</h2>
+                <form id="filtros">
+                    <input type="text" id="buscador" placeholder="Buscar por nombre">
+                    <label for="plataforma">Plataforma:</label>
+                    <select id="plataforma" name="plataforma">
+                        <option value="todos">Todos</option>
+                        <option value="ps4">PS4</option>
+                        <option value="xbox">Xbox</option>
+                        <option value="switch">Switch</option>
+                    </select>
+                    <label for="genero">Género:</label>
+                    <select id="genero" name="genero">
+                        <option value="todos">Todos</option>
+                        <option value="accion">Acción</option>
+                        <option value="aventura">Aventura</option>
+                        <option value="deportes">Deportes</option>
+                    </select>
+                    
+                    <button type="submit">Aplicar Filtros</button>
+                </form>
+            </aside>
+            <main>
+                <section class="grid">
+                    <article class="card">
+                        <img src="https://image.api.playstation.com/gs2-sec/acpkgo/prod/CUSA00133_00/374/i_21516ca32977519346e7b5cbf52fcadf722998b0d0a781fbeeea687cd3dca173/i/icon0.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>Descripcion</p>
+                        <p>Precio: $100</p>
+                        <button>Comprar</button>
+                    </article>
+                    <article class="card">
+                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>Descripcion</p>
+                        <p>Precio: $100</p>
+                        <button>Comprar</button>
+                    </article>
+                    <article class="card">
+                        <img src="https://store-images.s-microsoft.com/image/apps.7814.13531476541866969.9b83558e-4d72-4ee5-9214-3504337b32f8.4671c3bb-9787-44d9-bf45-a637e5e76c76?q=90&w=177&h=177" alt="Producto">
+                        <h3>Nombre del producto</h3>
+                        <p>Descripcion</p>
+                        <p>Precio: $100</p>
+                        <button>Comprar</button>
+                    </section>
+                </main>
+            </div>
+        </div>
     <footer class="footer">
         <div class="footer-column frases">
           <p>"Presiona Start para comenzar tu aventura."</p>

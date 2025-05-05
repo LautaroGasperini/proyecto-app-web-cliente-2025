@@ -4,21 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
-<body>
-    <h2>Contactanos</h2>
+<div class="wrapper">
+    <header>
+      <div>
+        <img src="img/Quilmes-removebg-preview.png" alt="Logo" class="logo" />
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="buscador">
+        <input type="text" placeholder="Buscar..." />
+        <button type="submit">Buscar</button>
+      </div>
+    </header>
 
-    <form action="" method="post">  
-        <label for="name">Nombre:</label>
-        <input type="text" name="name" id="name" required>
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-        <br>
-        <label for="mensaje">Nombre:</label>
-        <textarea name="mensaje" id="mensaje" cols="30" rows="10"required></textarea>
-        <br>
-        <input type="submit" value="Enviar">
-    </form>
+    <main class="contacto-main">
+      <section class="contacto-info">
+        <h2>Contactanos</h2>
+        <p>¿Tenés alguna consulta o sugerencia? ¡Escribinos!</p>
+        <ul>
+          <li>📧 Email: <a href="mailto:lautitondi2019@gmail.com">lautitondi2019@gmail.com</a></li>
+          <li>📞 Teléfono: +54 9 11 1234 5678</li>
+          <li>📍 Dirección: Av. Gamer 123, Quilmes</li>
+        </ul>
+      </section>
+
+      <section class="contacto-form">
+        <form>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-column frases">
+        <p>"Presiona Start para comenzar tu aventura."</p>
+        <p>"Gamers don't die, they respawn."</p>
+      </div>
+      <div class="footer-column info">
+        <p>&copy; 2025 Catálogo de Videojuegos</p>
+        <p>Desarrollado por Lautaro Gasperini</p>
+      </div>
+      <div class="footer-column contacto">
+        <h4>Contacto</h4>
+        <p>📧 <a href="mailto:lautitondi2019@gmail.com">lautitondi2019@gmail.com</a></p>
+        <p>📱 Seguinos en: Facebook | Instagram | Twitter</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
