@@ -10,13 +10,13 @@
     <div class="wrapper">
         <header>
             <div>
-                <img src="img/Quilmes-removebg-preview.png" alt="Logo" class="logo">
+                <img src="img/kmsGaming-removebg-preview.png" alt="Logo" class="logo">
             </div>
             <nav class="menu">
                 <ul>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="#">Productos</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
             <div class="buscador">
@@ -29,6 +29,7 @@
                 <h2>Filtros</h2>
                 <form id="filtros">
                     <input type="text" id="buscador" placeholder="Buscar por nombre">
+                    <hr>
                     <label for="plataforma">Plataforma:</label>
                     <select id="plataforma" name="plataforma">
                         <option value="todos">Todos</option>
@@ -43,32 +44,74 @@
                         <option value="aventura">Aventura</option>
                         <option value="deportes">Deportes</option>
                     </select>
-                    
+                    <hr>
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio-min" name="precio-min" placeholder="Mínimo" min="0">
+                    <input type="number" id="precio-max" name="precio-max" placeholder="Máximo" min="0">
+                    <hr>
+                    <div class="checkbox-ofertas">
+                        <input type="checkbox" id="ofertas" name="ofertas">
+                        <label for="ofertas">Ofertas</label>
+                    </div>
+                    <div class="checkbox-envio">
+                        <input type="checkbox" id="envio" name="envio">
+                        <label for="envio">Envio gratis</label>
+                    </div>
+                    <hr> 
                     <button type="submit">Aplicar Filtros</button>
                 </form>
             </aside>
             <main>
+                <label class="label">
+                    ↑↓ Ordenar por:
+                     <select name="ordenar" id="ordenar">
+                        <option value="nombre">Mas vendidos</option>
+                        <option value="precio-asc">Precio mas alto</option>
+                        <option value="precio-desc">Precio mas bajo</option>
+                     </select>
+                </label>
                 <section class="grid">
                     <article class="card">
                         <img src="https://image.api.playstation.com/gs2-sec/acpkgo/prod/CUSA00133_00/374/i_21516ca32977519346e7b5cbf52fcadf722998b0d0a781fbeeea687cd3dca173/i/icon0.png" alt="Producto">
-                        <h3>Nombre del producto</h3>
-                        <p>Descripcion</p>
-                        <p>Precio: $100</p>
+                        <h3>Batman: Arkham Knight</h3>
+                        <p>PC, PS4 | Accion</p>
+                        <p>$1000</p>
                         <button>Comprar</button>
                     </article>
                     <article class="card">
                         <img src="https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png" alt="Producto">
-                        <h3>Nombre del producto</h3>
-                        <p>Descripcion</p>
-                        <p>Precio: $100</p>
+                        <h3>Minecraft</h3>
+                        <p>PC,XBOX | Aventura</p>
+                        <p>$1000</p>
                         <button>Comprar</button>
                     </article>
                     <article class="card">
                         <img src="https://store-images.s-microsoft.com/image/apps.7814.13531476541866969.9b83558e-4d72-4ee5-9214-3504337b32f8.4671c3bb-9787-44d9-bf45-a637e5e76c76?q=90&w=177&h=177" alt="Producto">
-                        <h3>Nombre del producto</h3>
-                        <p>Descripcion</p>
-                        <p>Precio: $100</p>
+                        <h3>GTA V</h3>
+                        <p>PC, PS4, XBOX | Acción</p>
+                        <p>$1000</p> 
                         <button>Comprar</button>
+                    </article>
+                    <article class="card">
+                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202503/2520/f3c135f8ebdc50b782c6f5f02b27130b499e22847f05aee6.png" alt="Producto">
+                        <div class="producto-oferta">
+                            <h3>FC 25</h3>
+                            <p class="oferta">*OFERTA*</p>    
+                        </div>
+                        <p>PC, PS4, XBOX | Deportes</p>
+                        <div class="precio-oferta">
+                            <p class="precio-original">$1000</p>
+                            <p>$800</p> 
+                        </div>
+                        <button>Comprar</button>
+                    </article>
+                    <article class="card">
+                        <img src="https://image.api.playstation.com/vulcan/img/rnd/202010/2618/w48z6bzefZPrRcJHc7L8SO66.png" alt="Producto">
+                        <h3>The Last of Us II</h3>
+                        <p>PC, PS4| Accion, Aventura</p>
+                        <p>$1000</p> 
+                        <button>Comprar</button>
+                    </article>
                     </section>
                 </main>
             </div>
@@ -92,5 +135,5 @@
       </footer>
       
 </body>
-<script src="./scripts/script.js"></script>
+<script src="./scripts/app.js"></script>
 </html>

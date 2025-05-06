@@ -64,7 +64,6 @@ header, footer{
     min-height: calc(100vh - 120px);
     padding: 20px;
     display: flex;
-
 }
 
 .formAlta{
@@ -82,6 +81,7 @@ header{
   padding: 10px 20px;
   position: relative;
   flex-wrap: wrap;
+  
 
 }
 header h1{
@@ -93,10 +93,32 @@ header h1{
 
 }
 .logo {
-    height: 80px;
-    margin: 0 20px;
+    height: 95px;
     display: flex;
-  }
+    margin-left: 20px;
+}
+
+main{
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #ffffff;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    label{
+        font-size: 1.2em;
+        color: #030303;
+        margin-right: 70px;
+        margin-bottom: 10px;
+        select{
+            margin-left: 10px;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #636161;
+        }
+    }
+}
 
   
 .card{
@@ -104,7 +126,7 @@ header h1{
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin: 20px;
+    margin: 20px;    
     width: 300px;
     display: flex ;
     flex-direction: column;
@@ -135,31 +157,41 @@ header h1{
 .grid{
     flex: 3;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-left: 45px;
 }
 
+.menu{
+  margin-left: 100px ;
+  gap: 20px;
+}
 .menu ul {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
     gap: 15px;
+
 }
 
 .menu li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding: 10px 15px;
 }
 .buscador {
     display: flex;
     gap: 10px;
+    height: 33px;
 }
 .buscador input {
     padding: 5px;
     border-radius: 4px;
     border: 1px solid #ffffff;
+
+    width: 300px;
 }
 
 .buscador button {
@@ -181,6 +213,19 @@ aside{
         border: 1px solid #636161;
         border-radius: 4px;
     }
+    input[type="checkbox"]{
+        width: 20px;
+        height: 15px;
+        margin-right: 5px;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+    select{
+        padding: 5px;
+        border: 1px solid #636161;
+        border-radius: 4px;
+        width: 100%;
+    }
     button{
         background-color: #007bff;
         color: white;
@@ -194,8 +239,44 @@ aside{
             background-color: #0056b3;
         }
     }
-    
 }
+
+.producto-oferta{
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+.producto-oferta p{
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ffd900;
+}
+.precio-oferta{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.precio-original{
+    text-decoration: line-through;
+    color: #8f8d8d;
+}
+
+.checkbox-ofertas{
+    display: flex;
+    align-items: center;
+}
+.checkbox-ofertas label{
+    margin-top: 3px;
+}
+
+.checkbox-envio{
+    display: flex;
+    align-items: center;
+}
+.checkbox-envio label{
+    margin-top: 3px;
+}
+
 aside form {
     display: flex;
     flex-direction: column;
@@ -206,7 +287,11 @@ aside form {
       flex-direction: column;
       align-items: center;
     }
-  
+    
+    .menu {
+      margin-left: 20px;
+      justify-content: center;
+    }
     .menu ul {
       flex-direction: column;
       align-items: center;
@@ -215,6 +300,7 @@ aside form {
     .buscador {
       margin-top: 10px;
       justify-content: center;
+      width: 300px; 
     }
   
     .container {
@@ -223,12 +309,17 @@ aside form {
   
     .grid {
       grid-template-columns: 1fr;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   
     .footer {
       flex-direction: column;
       align-items: center;
       text-align: center;
+      gap: 10px;
     }
 
     aside{
@@ -241,6 +332,24 @@ aside form {
 
 
 /* CONTACTO */
+.wrapper-contacto {
+    flex: 1;  
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contacto-header {
+    background-color: #3a2374;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .contacto-header h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
 .contacto-main {
     display: flex;
     flex-wrap: wrap;
@@ -248,6 +357,8 @@ aside form {
     padding: 40px;
     background-color: #f8f8f8;
     color: #000000;
+    flex: 1;
+    
   }
   
   .contacto-info, .contacto-form {
