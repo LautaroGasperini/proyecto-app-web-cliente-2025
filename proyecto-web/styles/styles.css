@@ -105,6 +105,7 @@ main{
     background-color: #ffffff;
     color: #ffffff;
     flex-wrap: wrap;
+    align-content: flex-start;
     flex-direction: row-reverse;
     label{
         font-size: 1.2em;
@@ -128,13 +129,12 @@ main{
     padding: 20px;
     margin: 20px;    
     width: 300px;
-    display: flex ;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
     
     img{
         width: 100%;
-        height: auto;
+        height: 300px;
         object-fit: cover;
         border-radius: 8px;
     }
