@@ -110,12 +110,11 @@ function filterProducts(text){
 renderProducts(products);
 
 
-searchInput.addEventListener("input", (e) => {
-    filterProducts(e.target.value);
-});
-
 deliveryFreeCheckBox.addEventListener("change", (e) => {
     filterProducts(searchInput.value);
+});
+searchInput.addEventListener("input", (e) => {
+    filterProducts(e.target.value);
 });
 
 const addButton = document.querySelector("#btnAddProducts");
