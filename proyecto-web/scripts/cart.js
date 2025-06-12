@@ -30,8 +30,9 @@ function createCartCard(product) {
         if (index !== -1) {
             cartProducts.splice(index, 1);
             localStorage.setItem("cart", JSON.stringify(cartProducts));
+            card.remove();
+            console.log("Producto eliminado del carrito");
         }
-        renderCartProducts(cartProducts);
     });
 
     card.appendChild(img);

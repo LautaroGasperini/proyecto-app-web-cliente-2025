@@ -8,9 +8,18 @@ const BASE_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
 
 
-const products = [];
+let allProducts = [];
 const cartProducts = JSON.parse(localStorage.getItem("cart")) || []
 
+// Filtros aplicados por defecto
+let appliedFilters = {
+    plataforma: "todos",
+    genero: "todos",
+    precioMin: null,
+    precioMax: null,
+    ofertas: false,
+    envioGratis: false
+};
 
 const getProducts = async () => {
     const response = await fetch(`${BASE_URL}`, {
@@ -24,7 +33,7 @@ const getProducts = async () => {
     const data = await response.json();
     console.log('data', data);
 
-    const productsMapped = data.records.map(record => {
+    allProducts = data.records.map(record => {
         return {
             id: record.id,
             image: record.fields.image || "./img/default.png",
@@ -32,19 +41,27 @@ const getProducts = async () => {
             plataform: record.fields.plataform || "Plataforma no disponible",
             genre: record.fields.genre || "Género no disponible",
             price: record.fields.price || 0,
-            deliveryFree: record.fields.deliveryFree || false
+            deliveryFree: record.fields.deliveryFree === true,
+            ofertas: record.fields.ofertas === true
         };
     });
-    console.log('productsMapped', productsMapped);
+    console.log('products', allProducts);
 
 
-    renderProducts(productsMapped);
+    renderProducts(allProducts);
 }
 getProducts();
 
 const grid = document.querySelector(".grid");
 const searchInput = document.querySelector("#buscador");
-const deliveryFreeCheckBox = document.querySelector("#envio");
+const envioCheckbox = document.querySelector("#envio");
+const plataformaSelect = document.querySelector("#plataforma");
+const generoSelect = document.querySelector("#genero");
+const precioMinInput = document.querySelector("#precio-min");
+const precioMaxInput = document.querySelector("#precio-max");
+const ofertasCheckbox = document.querySelector("#ofertas");
+const aplicarFiltroBtn = document.querySelector("#aplicarFiltro");
+const filtrosForm = document.querySelector("#filtros");
 
 
 
@@ -54,7 +71,7 @@ function createCard(product) {
 
     const img = document.createElement("img");
     img.src = product.image;
-    img.alt = product.title;
+    img.alt = product.name || "Imagen no disponible";
 
     const name = document.createElement("h3");
     name.textContent = product.name;
@@ -71,13 +88,11 @@ function createCard(product) {
     const button = document.createElement("button");
     button.textContent = "Agregar al carrito";
     button.addEventListener("click", () => {
-        // Verificar si el producto ya está en el carrito
         const existingProduct = cartProducts.find(p => p.name === product.name);
         if (!existingProduct) {
-            // Agregar el producto al carrito
             cartProducts.push(product);
             localStorage.setItem("cart", JSON.stringify(cartProducts));
-            alert("Producto agregado al carrito");
+            console.log("Producto agregado al carrito");
         }
     });
 
@@ -90,31 +105,108 @@ function createCard(product) {
     return card;
 }
 
-function renderProducts(products) {
-    products.forEach(product => {
+function renderProducts(productsArray) {
+    grid.innerHTML = ""; // Limpiar el grid antes de renderizar
+    productsArray.forEach(product => {
     const card = createCard(product);
     grid.appendChild(card);
     });
 }
 
 
-
-function filterProducts(text){
-    const filteredProducts = products.filter(product => {
-        return product.name.toLowerCase().includes(text.toLowerCase())
-         && (product.deliveryFree === deliveryFreeCheckBox.checked || !deliveryFreeCheckBox.checked);
-    });
-    grid.innerHTML = "";
+// Filtrar productos por texto ingresado en el buscador
+function filterProductsByText() {
+const searchText = searchInput.value.toLowerCase();
+    
+    let filteredProducts = applyGeneralFilters(allProducts);
+    
+    if (searchText) {
+        filteredProducts = filteredProducts.filter(product => {
+            return product.name.toLowerCase().includes(searchText) ||
+                   product.genre.toLowerCase().includes(searchText) ||
+                   product.plataform.toLowerCase().includes(searchText);
+        });
+    }
+    
     renderProducts(filteredProducts);
+    console.log("Filtrado por texto:", searchText);
 }
-renderProducts(products);
+
+// Aplicar filtros generales (plataforma, género, precio, etc.)
+function applyGeneralFilters(products) {
+    return products.filter(product => {
+
+        const matchesPlatform = appliedFilters.plataforma === "todos" || 
+                                product.plataform.toLowerCase().includes(appliedFilters.plataforma.toLowerCase());
+
+        const matchesGenre = appliedFilters.genero === "todos" || 
+                                product.genre.toLowerCase().includes(appliedFilters.genero.toLowerCase());   
+
+        const matchesPriceMin = !appliedFilters.precioMin || 
+                               product.price >= appliedFilters.precioMin;
+
+        const matchesPriceMax = !appliedFilters.precioMax || 
+                               product.price <= appliedFilters.precioMax;
+        
+        const matchesDelivery = !appliedFilters.envioGratis || product.deliveryFree;
+
+        const matchesOffers = !appliedFilters.ofertas || product.ofertas;
+        
+        return matchesPlatform && matchesGenre && matchesPriceMin && 
+               matchesPriceMax && matchesDelivery && matchesOffers;
+    });
+}
+
+// Aplicar todos los filtros y actualizar la vista
+function applyAllFilters() {
+    appliedFilters = {
+        plataforma: plataformaSelect.value,
+        genero: generoSelect.value,
+        precioMin: precioMinInput.value ? parseInt(precioMinInput.value) : null,
+        precioMax: precioMaxInput.value ? parseInt(precioMaxInput.value) : null,
+        ofertas: ofertasCheckbox.checked,
+        envioGratis: envioCheckbox.checked
+    };
+    
+    console.log("Filtros aplicados:", appliedFilters);
+    
+    filterProductsByText();
+}
 
 
-deliveryFreeCheckBox.addEventListener("change", (e) => {
-    filterProducts(searchInput.value);
+searchInput.addEventListener("input", filterProductsByText);
+
+filtrosForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    applyAllFilters();
 });
-searchInput.addEventListener("input", (e) => {
-    filterProducts(e.target.value);
+
+aplicarFiltroBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    applyAllFilters();
+});
+
+// Función para limpiar los filtros y volver a mostrar todos los productos
+function clearFilters() {
+    filtrosForm.reset();
+    
+    appliedFilters = {
+        plataforma: "todos",
+        genero: "todos",
+        precioMin: null,
+        precioMax: null,
+        ofertas: false,
+        envioGratis: false
+    };
+    
+    renderProducts(allProducts);
+    console.log("Filtros limpiados");
+}
+// Limpiar filtros
+const clearFiltersBtn = document.querySelector("#limpiarFiltros");
+clearFiltersBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    clearFilters();
 });
 
 const addButton = document.querySelector("#btnAddProducts");
@@ -148,4 +240,9 @@ async function addProductToAirtable(product) {
     });
     const data = await response.json();
     console.log('Producto agregado:', data);
+
+    filterProducts();
 }
+
+
+
