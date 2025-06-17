@@ -45,7 +45,7 @@
                     <label for="genero">Género:</label>
                     <select id="genero" name="genero">
                         <option value="todos">Todos</option>
-                        <option value="accion">Acción</option>
+                        <option value="Acción">Acción</option>
                         <option value="aventura">Aventura</option>
                         <option value="deportes">Deportes</option>
                     </select>
@@ -62,11 +62,16 @@
                         <input type="checkbox" id="envio" name="envio">
                         <label for="envio">Envio gratis</label>
                     </div>
-                    <hr> 
-                    <button type="submit" id="aplicarFiltro">Aplicar Filtros</button>
+                    <hr>
+                    <div>
+                        <button type="submit" id="aplicarFiltro">Aplicar Filtros</button>
+                        <button type="submit" id="limpiarFiltros">
+                            <i class="fa-solid fa-broom"></i>
+                        </button>
+                    </div> 
+                    <hr>
+                    <button type="submit" id="btnAddProducts">Agregar Videojuego</button>
                 </form>
-                <hr>
-                <button type="submit" id="btnAddProducts">Agregar Videojuego</button>
             </aside>
             <main>
                 <label class="label">

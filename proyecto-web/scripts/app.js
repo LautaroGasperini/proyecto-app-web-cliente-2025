@@ -73,6 +73,12 @@ function createCard(product) {
     img.src = product.image;
     img.alt = product.name || "Imagen no disponible";
 
+    img.style.cursor = "pointer";
+    img.addEventListener("click", () => {
+        goToDetails(product);
+    });
+
+
     const name = document.createElement("h3");
     name.textContent = product.name;
     
@@ -103,6 +109,10 @@ function createCard(product) {
     card.appendChild(price);
     card.appendChild(button);
     return card;
+}
+
+function goToDetails(product){
+    window.location.href = `details.html?id=${product.id}`;
 }
 
 function renderProducts(productsArray) {
