@@ -4,6 +4,7 @@ const BASE_ID = "appGxsnWFHUh3NckC";
 const TABLE_NAME = "Videogames";
 const BASE_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
+
 // Obtener el ID del producto desde la URL
 function getProductIdFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -69,25 +70,18 @@ function renderProductDetails(product) {
     if (description) {
         description.textContent = product.description || "Descripción no disponible";
     }
+
+    setAccionButtons(product);
 }
 
 function setAccionButtons(product) {
-    const cartButton = document.querySelector(".btn btn-secondary");
-    if (cartButton) {
-        cartButton.addEventListener("click", () => {
-            // Aquí puedes implementar la lógica para agregar al carrito
-            addToCart(product);
-        });
-    }
-
-    const buyButton = document.querySelector(".btn btn-primary");
+    const buyButton = document.querySelector(".btn-primary");
+    const cartButton = document.querySelector(".btn-secondary");
     if (buyButton) {
         buyButton.addEventListener("click", () => {
-            // Aquí puedes implementar la lógica para comprar ahora
             alert(`Comprando ahora: ${product.name}`);
         });
     }
-
     if(cartButton){
         cartButton.addEventListener("click", () => {
             addToCart(product);
@@ -96,8 +90,7 @@ function setAccionButtons(product) {
 }
 function addToCart(product) {
     const cartProducts = JSON.parse(localStorage.getItem("cart")) || [];
-    const existingProduct = cartProducts.find(p => p.id === product.id);
-    
+    const existingProduct = cartProducts.find(p => p.name === product.name);
     if (!existingProduct) {
         cartProducts.push(product);
         localStorage.setItem("cart", JSON.stringify(cartProducts));
