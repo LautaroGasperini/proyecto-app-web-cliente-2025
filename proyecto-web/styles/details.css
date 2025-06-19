@@ -123,3 +123,33 @@ main{
     line-height: 1.6;
     color: #555;
 }
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .product-details-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .product-header h1 {
+        font-size: 24px;
+    }
+
+    .current-price {
+        font-size: 28px;
+    }
+
+    .purchase-section {
+        position: sticky;
+        bottom: 0;
+        background: white;
+        padding: 15px;
+        border-top: 1px solid #e5e5e5;
+        margin: 0 -20px;
+        border-radius: 0;
+    }
+
+}
