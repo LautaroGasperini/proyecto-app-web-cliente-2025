@@ -35,7 +35,31 @@
                     <h1>Carrito de Compras</h1>
                     <p>Revisa los productos que has añadido a tu carrito.</p>
                 </section>
-                <section class="cart-grid">
+                <section class="cart-content">
+                    <div class="cart-items">
+                        <div id ="cart-items-container">
+                            <!-- Los productos del carrito se cargarán aquí dinámicamente -->
+                        </div>
+                    </div>
+                    <div class="cart-summary">
+                        <div id="summary-card">
+                            <div class="summary-title">Resumen de compra</div>
+                            <div class="summary-row">
+                                <span>Productos (<span id="total-items">0</span>)</span>
+                                <span id="subtotal">$0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Envío</span>
+                                <span id="shipping-cost">$0</span>
+                            </div>
+                            <div class=" summary-row summary-total">
+                                <span>Total</span>
+                                <span id="total-price">$0</span>
+                            </div>
+                            <button id="checkout-btn" class="checkout-btn">Finalizar Compra</button>
+                            <button id="continue-shopping" class="continue-shopping">Continuar Comprando</button>    
+                        </div>
+                    </div>
                 </section>
                 </main>
             </div>
