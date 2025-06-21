@@ -173,17 +173,20 @@ function renderCartItems() {
 function changeQuantity(index, delta) {
     const cartProducts = JSON.parse(localStorage.getItem("cart")) || [];
     const product = cartProducts[index];
+
+    if (!product) return;
     
-    if (product) {
-        product.quantity = (product.quantity || 1) + delta;
-        if (product.quantity <= 0) {
-            removeFromCart(index);
-        } else {
-            saveCartProducts(cartProducts);
-            renderCartItems();
-            updateTotalPrice();
-        }
+    const newQuantity = (product.quantity || 1) + delta;
+    
+    if (newQuantity <= 0) {
+        removeFromCart(index);
+        return;
     }
+    
+    product.quantity = newQuantity;
+    saveCartProducts(cartProducts);
+    renderCartItems();
+    updateTotalPrice();
 }
 function removeFromCart(index) {
     const cartProducts = JSON.parse(localStorage.getItem("cart")) || [];
@@ -195,28 +198,46 @@ function removeFromCart(index) {
 
 function calculateTotalPrice() {
     const cartProducts = JSON.parse(localStorage.getItem("cart")) || [];
-    return cartProducts.reduce((total, product) => {
+    let subtotal = 0;
+    let totalItems = 0;
+    let hasDeliveryFree = false;
+
+    cartProducts.forEach(product => {
         const quantity = product.quantity || 1;
-        return total + (product.price * quantity);
-    }, 0);
+        subtotal += product.price * quantity;
+        totalItems += quantity;
+        if (product.deliveryFree) {
+            hasDeliveryFree = true;
+        }
+    });
+
+    const shippingCost = hasDeliveryFree || subtotal > 500 ? 0 : 50;
+    const total = subtotal + shippingCost;
+
+    return {
+        subtotal,
+        totalItems,
+        shippingCost,
+        total,
+        hasDeliveryFree
+    };
 }
 
 function processCheckout() {
-    const cartProducts = getCartProducts();
+    const cartProducts = JSON.parse(localStorage.getItem("cart")) || [];
     if (cartProducts.length === 0) return;
     
-    const totals = calculateTotals();
+    const totals = calculateTotalPrice();
     alert(`¡Gracias por tu compra!\nTotal: $${totals.total}\nProductos: ${totals.totalItems}`);
     
     // Limpiar carrito después de la compra
     localStorage.removeItem("cart");
     renderCartItems();
-    updateSummary();
+    updateTotalPrice();
 }
 
 function updateTotalPrice() {
     const totals = calculateTotalPrice();
-    document.getElementById('cart-count').textContent = `${totals.totalItems} producto${totals.totalItems !== 1 ? 's' : ''}`;
     document.getElementById('total-items').textContent = totals.totalItems;
     document.getElementById('subtotal').textContent = `$${totals.subtotal}`;
     document.getElementById('shipping-cost').textContent = totals.shippingCost === 0 ? 'Gratis' : `$${totals.shippingCost}`;
@@ -233,11 +254,14 @@ function updateTotalPrice() {
 }
 // Event listeners
 document.getElementById('checkout-btn').addEventListener('click', processCheckout);
+document.getElementById('continue-shopping').addEventListener('click', () => {
+    window.history.back();
+});
 
 // Inicializar la página
 function init() {
     renderCartItems();
-    updateSummary();
+    updateTotalPrice();
 }
 
 // Ejecutar cuando la página cargue

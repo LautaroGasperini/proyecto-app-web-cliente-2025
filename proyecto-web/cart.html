@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalogo de Videojuegos</title>
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
@@ -29,9 +30,8 @@
                 </a>
             </div>                    
         </header>
-        <div class="container">
-            <main>
-                <section class="cart-header">
+        <div class="cart-container">
+            <section class="cart-header">
                     <h1>Carrito de Compras</h1>
                     <p>Revisa los productos que has añadido a tu carrito.</p>
                 </section>
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="cart-summary">
-                        <div id="summary-card">
+                        <div class="summary-card">
                             <div class="summary-title">Resumen de compra</div>
                             <div class="summary-row">
                                 <span>Productos (<span id="total-items">0</span>)</span>
@@ -52,19 +52,17 @@
                                 <span>Envío</span>
                                 <span id="shipping-cost">$0</span>
                             </div>
-                            <div class=" summary-row summary-total">
+                            <div class="summary-row summary-total">
                                 <span>Total</span>
                                 <span id="total-price">$0</span>
                             </div>
-                            <button id="checkout-btn" class="checkout-btn">Finalizar Compra</button>
+                            <button id="checkout-btn" class="checkout-btn" disabled>Finalizar Compra</button>
                             <button id="continue-shopping" class="continue-shopping">Continuar Comprando</button>    
                         </div>
                     </div>
                 </section>
-                </main>
             </div>
         </div>
-    </div>
     <footer class="footer">
         <div class="footer-column frases">
           <p>"Presiona Start para comenzar tu aventura."</p>

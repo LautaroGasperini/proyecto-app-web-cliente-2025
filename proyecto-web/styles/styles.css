@@ -22,8 +22,6 @@ body{
     line-height: 1.5;
     font-size: 16px;
     color: #f0f0f0;
-    
-    
 }
 header, footer{
     position: sticky;
@@ -81,7 +79,6 @@ header{
   padding: 10px 20px;
   position: relative;
   flex-wrap: wrap;
-  
 
 }
 header h1{
