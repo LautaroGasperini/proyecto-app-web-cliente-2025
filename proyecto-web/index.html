@@ -24,8 +24,8 @@
                     <a href="cart.html" id="cart" >
                         <i class="fas fa-shopping-cart fa-lg" style="color: white;"></i>
                     </a>
-                    <a href="login.html" id="login" >
-                        <i class="fas fa-user fa-lg" style="color: white;"></i>
+                    <a href="crud.html" id="crud" >
+                        <i class="fa-solid fa-hammer" style="color: white; font-size: 1.2rem;"></i>
                     </a>
                 </div>    
         </header>
@@ -41,6 +41,10 @@
                         <option value="ps4">PS4</option>
                         <option value="xbox">Xbox</option>
                         <option value="switch">Switch</option>
+                        <option value="pc">PC</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="ps5">PS5</option>
+
                     </select>
                     <label for="genero">Género:</label>
                     <select id="genero" name="genero">
@@ -48,6 +52,10 @@
                         <option value="Acción">Acción</option>
                         <option value="aventura">Aventura</option>
                         <option value="deportes">Deportes</option>
+                        <option value="rol">Rol</option>
+                        <option value="estrategia">Estrategia</option>
+                        <option value="Mundo Abierto">Mundo Abierto</option>
+                        <option value="terror">Terror</option>
                     </select>
                     <hr>
                     <label for="precio">Precio:</label>
@@ -69,15 +77,12 @@
                             <i class="fa-solid fa-broom"></i>
                         </button>
                     </div> 
-                    <hr>
-                    <button type="submit" id="btnAddProducts">Agregar Videojuego</button>
                 </form>
             </aside>
             <main>
                 <label class="label">
                     ↑↓ Ordenar por:
                      <select name="ordenar" class="order" id="ordenar">
-                        <option value="nombre">Mas vendidos</option>
                         <option value="precio-asc">Precio mas alto</option>
                         <option value="precio-desc">Precio mas bajo</option>
                      </select>

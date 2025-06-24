@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 *{
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -34,7 +33,7 @@ header, footer{
     color: rgb(255, 255, 255);
     text-align: center;
     font-size: 0.9rem;
-    padding: 1% ;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -192,7 +191,7 @@ main{
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s;
-  font-size: 1.5rem;
+
 }
 .icons-user-cart a:hover{
     color: #007bff;
@@ -371,6 +370,9 @@ aside form {
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .contacto-form {
+    padding-right: 50px;
   }
   
   .contacto-info h2 {

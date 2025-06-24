@@ -161,6 +161,8 @@ function applyGeneralFilters(products) {
         const matchesDelivery = !appliedFilters.envioGratis || product.deliveryFree;
 
         const matchesOffers = !appliedFilters.ofertas || product.ofertas;
+
+        
         
         return matchesPlatform && matchesGenre && matchesPriceMin && 
                matchesPriceMax && matchesDelivery && matchesOffers;
@@ -222,20 +224,6 @@ clearFiltersBtn.addEventListener("click", (e) => {
 const addButton = document.querySelector("#btnAddProducts");
 addButton.addEventListener("click", addProduct);
 
-function addProduct() {
-    const newProduct = {
-        image: "./img/default.png",
-        name: "Nuevo Producto",
-        plataform: "PS4",
-        genre: "Cualquiera",
-        price: 20000 
-    };
-
-    addProductToAirtable(newProduct);
-
-    const card = createCard(newProduct);
-    grid.appendChild(card);
-}
 
 async function addProductToAirtable(product) {
     const response = await fetch(`${BASE_URL}`, {
@@ -253,6 +241,9 @@ async function addProductToAirtable(product) {
 
     filterProducts();
 }
+
+
+
 
 
 

@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+}
+.crud-header h1{
+    font-size: 2.5rem;
+    color: #212c8b;
+    margin: 20px 0 10px;
+    text-align: center;
+}
+.crud-header p{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #000000;
+    text-align: center;
+}
+.crud-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+}
+.crud-form-column {
+    max-width: 700px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    height: fit-content;
+}
+.crud-form-column h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+.crud-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.crud-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #292929;
+}
+.crud-form input, select, textarea{
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    color: #292929;
+    font-size: 10px;
+    border: 2px solid #adadad;
+}
+.form-buttons{
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.crud-form button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #212c8b;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+}
+#btnAgregar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+}
+#btnCancelar:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+}
+.crud-list-column{
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.crud-list-column h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+.videogames-container {
+    max-height: 700px;
+    overflow-y: auto;
+}
+.videogames-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+.videogames-list li {
+    background-color: #b6b6b8;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+    transition: transform 0.2s;
+}
+.imagen-juego {
+    width: 150px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+.videogames-list li h3 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    color: #333333;
+}
+.videogames-list li p {
+    margin: 5px 0;
+    color: #222222;
+}
+.videogames-list li button {
+    top: 10px;
+    right: 10px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.videogames-list li button.btnEdit {
+    background-color: #d87d06;
+}
+.videogames-list li button.btnDelete {
+    background-color: #c0392b;
+}
+@media (max-width: 1024px) {
+    .crud-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .crud-header h1 {
+        font-size: 2rem;
+    }
+    
+    .crud-form-column,
+    .crud-list-column {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .crud-header {
+        padding: 20px;
+        
+    }
+    
+    .crud-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .crud-header p {
+        font-size: 1rem;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .videogames-container {
+        max-height: 400px;
+    }
+    
+    .imagen-juego {
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .crud-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .crud-form-column h2,
+    .crud-list-column h2 {
+        font-size: 1.4rem;
+    }
+    
+    .videogames-list li {
+        padding: 15px;
+    }
+    
+    .videogames-list li h3 {
+        font-size: 1.1rem;
+    }
+    
+    .imagen-juego {
+        height: 100px;
+    }
+}
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Catalogo de videojuegos</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/crud.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div>
+                <img src="img/kmsGaming-removebg-preview.png" alt="Logo" class="logo">
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="icons-user-cart">
+                <a href="cart.html" id="cart">
+                    <i class="fas fa-shopping-cart fa-lg" style="color: white;"></i>
+                </a>
+                <a href="crud.html" id="crud">
+                    <i class="fa-solid fa-hammer" style="color: white; font-size: 1.2rem;"></i>
+                </a>
+            </div>
+        </header>
+        <div class="crud-header">
+            <h1>Administración del Catálogo de Videojuegos</h1>
+            <p>Agrega, edita o elimina videojuegos del catálogo.</p>
+        </div>
+        <section class="crud-container">
+            <div class="crud-form-column">
+                <h2>Agregar o editar Videojuego</h2>
+                <form id="crud-form" class="crud-form">
+                    <input type="hidden" name="id-game" id="id-game">
+
+                    <label for="imagen">Imagen del Videojuego:</label>
+                    <input type="url" id="imagen" name="imagen" placeholder="URL de la imagen">
+
+                    <label for="nombre">Nombre del Videojuego:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+
+                    <label for="plataforma">Plataforma:</label>
+                    <input type="text" id="plataforma" name="plataforma" placeholder="PS4, Xbox, Switch, etc." required>
+
+
+                    <label for="genero">Género:</label>
+                    <input type="text" id="genero" name="genero" placeholder="Acción, Aventura, Deportes, etc."
+                        required>
+
+
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" name="precio" min="0" required>
+
+                    <div class="form-buttons">
+                        <button type="submit" id="btnAgregar">Agregar Videojuego</button>
+                        <button type="button" id="btnCancelar" style="display: none;">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="crud-list-column">
+                <h2>Lista de Videojuegos</h2>
+                <div class="videogames-container">
+                    <ul class="videogames-list" id="videogames-list">
+                        <!-- Aca se agregarán los videojuegos dinámicamente -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="footer-column frases">
+            <p>"Presiona Start para comenzar tu aventura."</p>
+            <p>"Gamers don't die, they respawn."</p>
+        </div>
+
+        <div class="footer-column info">
+            <p>&copy; 2025 Catálogo de Videojuegos</p>
+            <p>Desarrollado por Lautaro Gasperini</p>
+        </div>
+
+        <div class="footer-column contacto">
+            <h4>Contacto</h4>
+            <p>📧 <a href="mailto:lautitondi2019@gmail.com">lautitondi2019@gmail.com</a></p>
+            <p>📱 Seguinos en: Facebook | Instagram | Twitter</p>
+        </div>
+    </footer>
+</body>
+<script src="./scripts/crud.js"></script>
+
+</html>
