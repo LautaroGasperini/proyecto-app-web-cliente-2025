@@ -71,12 +71,6 @@ form.addEventListener("submit", async (e) => {
     obtenerVideojuegos();
 });
 
-btnCancelar.addEventListener("click", () => {
-    form.reset();
-    idInput.value = "";
-    btnCancelar.style.display = "none";
-});
-
 async function editarJuego(id) {
     const res = await fetch(`${BASE_URL}/${id}`, { headers: HEADERS });
     const data = await res.json();
