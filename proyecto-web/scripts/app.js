@@ -221,26 +221,6 @@ clearFiltersBtn.addEventListener("click", (e) => {
     clearFilters();
 });
 
-const addButton = document.querySelector("#btnAddProducts");
-addButton.addEventListener("click", addProduct);
-
-
-async function addProductToAirtable(product) {
-    const response = await fetch(`${BASE_URL}`, {
-        method: "POST",
-        headers: {
-            "Authorization": `Bearer ${API_TOKEN}`,
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            fields: product
-        })
-    });
-    const data = await response.json();
-    console.log('Producto agregado:', data);
-
-    filterProducts();
-}
 
 
 
